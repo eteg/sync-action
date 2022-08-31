@@ -4,19 +4,6 @@ const exec = require('@actions/exec');
 const shell = require('shelljs');
 const axios = require('axios')
 
-const USER = core.getInput('dst_user')
-const PASS = core.getInput('dst_pass')
-const REPO = 'testing'
-const SRC_SSH =  core.getInput('src-ssh')
-
-const AUTH_URL = `https://api.bitbucket.org/2.0/user`
-const REPO_URL = `https://api.bitbucket.org/2.0/repositories/${USER}/${REPO}`
-
-const auth = {
-  username: USER,
-  password: PASS
-}
-
 function handleError(error) {
   if (error.response) {
     const { status, statusText, data } = error.response
@@ -32,11 +19,33 @@ function handleError(error) {
 }
 
 async function init() {
+  const dateTime = (new Date()).toLocaleString('pt-BR');
+
+  const { 
+    ref,
+    eventName
+  } = github.context;
+
+  const {
+    repository
+  } = github.context.payload
+  
+  shell.echo(`💡 Job started at ${dateTime}`);
+  shell.echo(`🖥️ Job was automatically triggered by ${eventName} event`);
+  shell.echo(`🔎 The name of your branch is ${ref} and your repository is ${repository.name}.`)
 
   shell.echo('Checking user...')
 
-  shell.echo(`${github.event}`)
-  shell.echo(`${ github.event.repository.name }`)
+  const USER = core.getInput('dst_user')
+  const PASS = core.getInput('dst_pass')
+  const SRC_SSH =  core.getInput('src-ssh')
+  const AUTH_URL = `https://api.bitbucket.org/2.0/user`
+  const REPO_URL = `https://api.bitbucket.org/2.0/repositories/${USER}/${repository.name}`
+
+  const auth = {
+    username: USER,
+    password: PASS
+  }
 
   const user = await axios.get(AUTH_URL, { auth } ).catch(error => {
     shell.echo('Failed, most likely, the provided credentials are invalid.')
@@ -46,7 +55,7 @@ async function init() {
 
   shell.echo('Checking repository...')
 
-  const repository = await axios.get(REPO_URL, { auth }).catch(async error => {
+  const repo = await axios.get(REPO_URL, { auth }).catch(async error => {
     handleError(error)
 
     shell.echo('Repository does not exist, creating it...')
