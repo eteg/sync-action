@@ -38,7 +38,7 @@ async function init() {
 
   const USER = core.getInput('dst_user')
   const PASS = core.getInput('dst_pass')
-  const SRC_SSH =  core.getInput('src-ssh')
+  const SRC_SSH = core.getInput('src-ssh')
   const AUTH_URL = `https://api.bitbucket.org/2.0/user`
   const REPO_URL = `https://api.bitbucket.org/2.0/repositories/${USER}/${repository.name}`
 
@@ -68,12 +68,19 @@ async function init() {
       shell.exit(1)
     })
   })
+
+  shell.echo(repo)
   
   shell.echo('Repository exists, adding ssh...')
 
   shell.exec(`mkdir -p ~/.ssh`)
   shell.exec(`echo ${SRC_SSH} > ~/.ssh/id_rsa`)
   shell.exec(`chmod 600 ~/.ssh/id_rsa`)
+
+  shell.exec(`git config --list`)
+
+  //shell.exec(`git remote add mirror ${}`)
+  shell.exec(`git push --tags --force --prune mirror refs/remotes/origin/*:refs/heads/*`)
 
   shell.exec(`git config --list`)
 }
