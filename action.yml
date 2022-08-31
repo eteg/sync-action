@@ -1,0 +1,15 @@
+name: sync-action
+description: Github Action to sync with Bitbucket repository.
+inputs:
+  DST_USER:
+    description: Bitbucket username of the destination repository.
+    required: true
+  DST_PASS:
+    description: Bitbucket app password of the destination repository.
+    required: true
+  DST_SSH:
+    description: Bitbucket SSH key to use for the sync.
+    required: true
+runs:
+  using: "node16"
+  main: "dist/index.js"
