@@ -1,7 +1,7 @@
 {
-  "name": "zcli-action",
+  "name": "async-action",
   "version": "1.0.0",
-  "description": "Github Action to deploy Zendesk Apps using ZCLI.",
+  "description": "Mirrors a GitHub Git repository to Bitbucket.",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eteg/zcli-action.git"
+    "url": "git+https://github.com/eteg/sync-action.git"
   },
   "keywords": [
     "GitHub",
@@ -21,9 +21,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eteg/zcli-action/issues"
+    "url": "https://github.com/eteg/sync-action/issues"
   },
-  "homepage": "https://github.com/eteg/zcli-action/blob/master/README.md",
+  "homepage": "https://github.com/eteg/sync-action/blob/master/README.md",
   "dependencies": {
     "@actions/core": "^1.2.5",
     "@actions/exec": "^1.1.1",

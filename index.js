@@ -35,6 +35,9 @@ async function init() {
 
   shell.echo('Checking user...')
 
+  shell.echo(`${github.event}`)
+  shell.echo(`${ github.event.repository.name }`)
+
   const user = await axios.get(AUTH_URL, { auth } ).catch(error => {
     shell.echo('Failed, most likely, the provided credentials are invalid.')
     handleError(error)
