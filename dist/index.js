@@ -24356,10 +24356,14 @@ async function init() {
   shell.exec(`mkdir ~/.ssh`)
   shell.exec(`chmod 700 ~/.ssh`)
   shell.exec(`echo "${SRC_SSH}" > ~/.ssh/id_rsa`)
+  shell.exec(`eval ssh-agent -s`)
   shell.exec(`eval $(ssh-agent -s)`)
   shell.exec(`ssh-add ~/.ssh/id_rsa`)
 
   shell.exec(`git config --global credential.username "${USER}"`)
+
+  shell.echo(`cat ~/.ssh/id_rsa`)
+  shell.echo(`cat ~/.ssh/known_hosts`)
 
   if (KNOWN_HOSTS) {
     shell.exec(`git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes -o UserKnownHostsFile=~/.ssh/known_hosts"`)
