@@ -70,14 +70,15 @@ async function init() {
     })
   })
 
-  shell.exec(`mkdir ~/.ssh`)
-  shell.exec(`chmod 700 ~/.ssh`)
+  shell.exec(`mkdir -p ~/.ssh`)
   shell.exec(`echo "${SRC_SSH}" > ~/.ssh/id_rsa`)
   shell.exec(`eval ssh-agent -s`)
   shell.exec(`eval $(ssh-agent -s)`)
   shell.exec(`ssh-add ~/.ssh/id_rsa`)
   shell.exec(`echo "${KNOWN_HOSTS}" > ~/.ssh/known_hosts`)
-
+  
+  shell.exec(`chmod 400 ~/.ssh/id_rsa`)
+  
   shell.exec(`git config --global credential.username "${USER}"`)
 
   if (KNOWN_HOSTS) {
