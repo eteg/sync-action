@@ -10,9 +10,6 @@ inputs:
   DST_SSH:
     description: Bitbucket SSH key to use for the sync.
     required: true
-  KNOW_HOSTS:
-    description: The contents of a SSH known_hosts file for host key verification. (If not provided, the host key will not be verified.)
-    required: false
 runs:
   using: "node16"
   main: "dist/index.js"
