@@ -71,7 +71,7 @@ async function init() {
   })
 
   shell.exec(`mkdir ~/.ssh`)
-  shell.exec(`chmod 700 ~/.ssh`)
+  shell.exec(`chmod 600 ~/.ssh`)
   shell.exec(`echo "${SRC_SSH}" > ~/.ssh/id_rsa`)
 
   shell.exec(`git config --global credential.username "${USER}"`)
