@@ -76,10 +76,10 @@ async function init() {
   shell.exec(`eval ssh-agent -s`)
   shell.exec(`eval $(ssh-agent -s)`)
   shell.exec(`ssh-add ~/.ssh/id_rsa`)
+  shell.exec(`echo "${KNOWN_HOSTS}" > ~/.ssh/known_hosts`)
 
   shell.exec(`git config --global credential.username "${USER}"`)
 
-  shell.exec(`cat ~/.ssh/id_rsa`)
   shell.exec(`cat ~/.ssh/known_hosts`)
 
   if (KNOWN_HOSTS) {
