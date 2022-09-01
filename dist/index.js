@@ -24319,11 +24319,12 @@ async function init() {
 
   shell.echo('Checking user...')
 
-  const USER = core.getInput('dst_user')
-  const PASS = core.getInput('dst_pass')
-  const SRC_SSH = core.getInput('src-ssh')
+  const USER = core.getInput('DST_USER')
+  const PASS = core.getInput('DST_PASS')
+  const SRC_SSH = core.getInput('DST_SSH')
   const AUTH_URL = `https://api.bitbucket.org/2.0/user`
   const REPO_URL = `https://api.bitbucket.org/2.0/repositories/${USER}/${repository.name}`
+  const KNOW_HOSTS = core.getInput('KNOW_HOSTS')
 
   const auth = {
     username: USER,
@@ -24356,9 +24357,11 @@ async function init() {
   shell.exec(`echo ${SRC_SSH} > ~/.ssh/id_rsa`)
   shell.exec(`chmod 700 ~/.ssh/id_rsa`)
 
-  shell.echo(`git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"`)
-  // TODO Add hosts
-  //shell.exec(`git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes -o UserKnownHostsFile=~/.ssh/known_hosts"`)
+  if (KNOW_HOSTS) {
+    shell.exec(`git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes -o UserKnownHostsFile=~/.ssh/known_hosts"`)
+  } else {
+    shell.exec(`git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"`)
+  }
   
   shell.exec(`git remote add mirror git@bitbucket.org:${USER}/${repository.name}.git`)
   shell.exec(`git push --tags --force --prune mirror refs/remotes/origin/*:refs/heads/*`)
