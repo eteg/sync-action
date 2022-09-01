@@ -81,13 +81,13 @@ async function init() {
   shell.exec(`git config --global credential.username "${USER}"`)
 
   shell.exec(`cat ~/.ssh/known_hosts`)
-
+/* 
   if (KNOWN_HOSTS) {
     shell.exec(`git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes -o UserKnownHostsFile=~/.ssh/known_hosts"`)
   } else {
     shell.exec(`git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o IdentitiesOnly=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"`)
   }
-  
+   */
   shell.exec(`git remote add mirror git@bitbucket.org:${USER}/${repository.name}.git`)
   shell.exec(`git push --tags --force --prune mirror refs/remotes/origin/*:refs/heads/*`)
 
