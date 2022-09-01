@@ -83,8 +83,6 @@ async function init() {
   shell.exec(`git remote add mirror git@bitbucket.org:${USER}/${repository.name}.git`)
   shell.exec(`git push --tags --force --prune mirror refs/remotes/origin/*:refs/heads/*`)
 
-  shell.exec(`git config --list`)
-  shell.exec(`git config --global --list`)
 }
 
 init()
