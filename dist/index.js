@@ -24322,8 +24322,11 @@ async function init() {
   const USER = core.getInput('DST_USER')
   const PASS = core.getInput('DST_PASS')
   const SRC_SSH = core.getInput('DST_SSH')
+  const BITBUCKET_WORKSPACE = core.getInput('BITBUCKET_WORKSPACE')
+  const BITBUCKET_PROJECT = core.getInput('BITBUCKET_PROJECT')
+
   const AUTH_URL = `https://api.bitbucket.org/2.0/user`
-  const REPO_URL = `https://api.bitbucket.org/2.0/repositories/${USER}/${repository.name}`
+  const REPO_URL = `https://api.bitbucket.org/2.0/repositories/${BITBUCKET_WORKSPACE}/${repository.name}`
   const KNOWN_HOSTS = core.getInput('KNOWN_HOSTS')
 
   const auth = {
@@ -24346,7 +24349,10 @@ async function init() {
 
     await axios.post(REPO_URL, { 
       scm: 'git',
-      private: true
+      private: true,
+      project: {
+        key: BITBUCKET_PROJECT
+      }
     }, { auth }).catch(error => {
       handleError(error)
       shell.exit(1)
