@@ -24340,6 +24340,11 @@ async function init() {
     shell.exit(1)
   })
 
+  if (!user) {
+    shell.echo('Failed, most likely, the provided credentials are invalid.')
+    shell.exit(1)
+  }
+
   shell.echo('Checking repository...')
 
   const repo = await axios.get(REPO_URL, { auth } ).catch(async error => {

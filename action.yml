@@ -14,7 +14,7 @@ inputs:
     description: Bitbucket Workspace.
     required: true
   BITBUCKET_PROJECT:
-    description: Bitbucket Project.
+    description: Bitbucket Project Key.
     required: true
   KNOWN_HOSTS:
     description: The contents of a SSH known_hosts file for host key verification. (If not provided, the host key will not be verified.)
