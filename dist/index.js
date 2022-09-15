@@ -24384,7 +24384,7 @@ async function init() {
   shell.exec('git status')
   shell.exec('git add .')
   
-  shell.exec(`git remote add mirror git@bitbucket.org:${USER}/${repository.name}.git`)
+  shell.exec(`git remote add mirror git@bitbucket.org:${BITBUCKET_WORKSPACE}/${repository.name}.git`)
   shell.exec(`git push --tags --force --prune mirror refs/remotes/origin/*:refs/heads/*`)
 
 }
