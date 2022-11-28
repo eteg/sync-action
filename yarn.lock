@@ -962,10 +962,10 @@
   resolved "https://registry.yarnpkg.com/@vercel/ncc/-/ncc-0.34.0.tgz#d0139528320e46670d949c82967044a8f66db054"
   integrity sha512-G9h5ZLBJ/V57Ou9vz5hI8pda/YQX5HQszCs3AmIus3XzsmRn/0Ptic5otD3xVST8QLKk7AMk7AqpsyQGN7MZ9A==
 
-"@zendesk/zcli-apps@^1.0.0-beta.23":
-  version "1.0.0-beta.23"
-  resolved "https://registry.yarnpkg.com/@zendesk/zcli-apps/-/zcli-apps-1.0.0-beta.23.tgz#7b42c61e68476649b06dff91c5a014bb822f4fdd"
-  integrity sha512-zwJ7oxyMm24h3VuF6rbAhz2B5b9MboSJPX4ysXXEOygYKSm/BLEqo+dz28qMAp2bVvAcdiP5ZlUZ7jBY3sxRkA==
+"@zendesk/zcli-apps@^1.0.0-beta.26":
+  version "1.0.0-beta.26"
+  resolved "https://registry.yarnpkg.com/@zendesk/zcli-apps/-/zcli-apps-1.0.0-beta.26.tgz#9cadf2a76780b8cf3a3837741756770e95d3bf03"
+  integrity sha512-jb1eelmigHtNIjwFGffYxreylhtA/334Eb9PbgEtGTrnsJuMHOv4RJE1zQP4LuPaCpnMGbWsh/OuymEwA4aWJA==
   dependencies:
     adm-zip "^0.5.6"
     archiver "^5.3.1"
@@ -981,10 +981,10 @@
     tslib "^2.4.0"
     uuid "^8.3.2"
 
-"@zendesk/zcli-core@^1.0.0-beta.23":
-  version "1.0.0-beta.23"
-  resolved "https://registry.yarnpkg.com/@zendesk/zcli-core/-/zcli-core-1.0.0-beta.23.tgz#36ac8dc7cde4d55a9077d2a3654ea4437537f8d2"
-  integrity sha512-f5rDD9rr2lPtL91rfm1PC1LZcHmSDjKkWvgurBDEVKwGGnVVB5CqnSjlO3AQpq4hiESREM6y/3b0e+XVG7xYUQ==
+"@zendesk/zcli-core@^1.0.0-beta.26":
+  version "1.0.0-beta.26"
+  resolved "https://registry.yarnpkg.com/@zendesk/zcli-core/-/zcli-core-1.0.0-beta.26.tgz#a3efe43128f2b7b69b50463947d32c5023ac8222"
+  integrity sha512-8SpbDEGaiwTa8EWC7gCE+EQ42MhW9ZkOZCXRvHpcX/efPU9wgLEr+/y6Ozg6WZk6PQuR4sn08EvymHhMaAjkPA==
   dependencies:
     "@oclif/plugin-plugins" "^2.1.0"
     axios "^0.27.2"
@@ -993,18 +993,18 @@
   optionalDependencies:
     keytar "^7.9.0"
 
-"@zendesk/zcli@^1.0.0-beta.16":
-  version "1.0.0-beta.23"
-  resolved "https://registry.yarnpkg.com/@zendesk/zcli/-/zcli-1.0.0-beta.23.tgz#2eef5048d310719c71d5fe9fa6658ba750e96a34"
-  integrity sha512-9HfjTcIT5TS6jqDz/Nqc3JFYB4TSHqldznCMzQNYt50xRaZ2/8P5C8qnt/mb6lki0oETR61N2y7XUSe6Ga4SQw==
+"@zendesk/zcli@^1.0.0-beta.26":
+  version "1.0.0-beta.26"
+  resolved "https://registry.yarnpkg.com/@zendesk/zcli/-/zcli-1.0.0-beta.26.tgz#83038a27f914f13e0be1d1197d778c3e7de017f3"
+  integrity sha512-EnFzNqA+80/07QNRlQGxybSrn9164FRqFgFA8wtqh53G59dd5ajWpmx4+R7QsomRnzeATTW9IFJCAxxLFUVZig==
   dependencies:
     "@oclif/plugin-autocomplete" "^1.3.0"
     "@oclif/plugin-help" "^5.1.12"
     "@oclif/plugin-not-found" "^2.3.1"
     "@oclif/plugin-update" "^3.0.0"
     "@oclif/plugin-warn-if-update-available" "^2.0.4"
-    "@zendesk/zcli-apps" "^1.0.0-beta.23"
-    "@zendesk/zcli-core" "^1.0.0-beta.23"
+    "@zendesk/zcli-apps" "^1.0.0-beta.26"
+    "@zendesk/zcli-core" "^1.0.0-beta.26"
     chalk "^4.1.2"
     tslib "^2.4.0"
 
